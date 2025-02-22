@@ -14,10 +14,10 @@ This guide provides a detailed walkthrough of building microservices using Sprin
 
 # Installation
 ## Create MicroServices using Spring boot && Install Dependencies :
-** MicroServices : **
+**MicroServices :**
   - ms-users
   - ms-books
-** Dependencies : **
+**Dependencies :**
   - Lombok
   - Spring Web
   - Rest Repositories
