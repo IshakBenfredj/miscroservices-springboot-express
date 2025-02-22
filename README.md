@@ -35,7 +35,7 @@ Define your JPA entities using annotations like `@Entity`, `@Data`, `@NoArgsCons
 
 ## `ms-books` - Creating `Book.java`  
 
-// Ensure all required annotations are imported when using them.
+Ensure all required annotations are imported when using them.
 ```java
 @Entity  
 @Data  
