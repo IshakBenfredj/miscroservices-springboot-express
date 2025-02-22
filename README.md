@@ -29,9 +29,9 @@ This guide provides a detailed walkthrough for building microservices using **Sp
 
 # Creating Entities  
 
-Within the same package as the **main class** in each microservice, create a new package named **"Entities"**. This package will contain all entity classes.  
+- Within the same package as the **main class** in each microservice, create a new package named **"Entities"**. This package will contain all entity classes.  
 
-Define your JPA entities using annotations like `@Entity`, `@Data`, `@NoArgsConstructor`, and `@AllArgsConstructor`.  
+- Define your JPA entities using annotations like `@Entity`, `@Data`, `@NoArgsConstructor`, and `@AllArgsConstructor`.  
 
 ## `ms-books` - Creating `Book.java`  
 
@@ -58,6 +58,8 @@ public class Book {
 
 ## `ms-users` - Creating `Author.java`
 ```java
+package com.example.msbooks.repositories;
+
 @Entity
 @Data @NoArgsConstructor
 @AllArgsConstructor
@@ -73,4 +75,29 @@ public class Author {
 
     private List<String> bookId;
 }
+```
+
+# Creating Repositories (Interfaces)  
+
+- Within the same package as the **main class** in each microservice, create a new package named **"Repositories"**.  
+- This package will contain all repository interfaces.  
+- Each interface will extend `JpaRepository<EntityName, TypeOfIdInEntity>`.
+
+### Notes:  
+- **Import Required Dependencies**: Ensure `JpaRepository` and the entity class are correctly imported.  
+- **Naming Convention**: The repository interface should follow the naming convention `EntityNameRepository` (e.g., `BookRepository`).  
+
+## `ms-books` - Creating `BookRepository.java`  
+
+```java
+// Ensure all required annotations are imported before using them.
+package com.example.msbooks.repositories;  // keep your package path
+
+import com.uni.msbooks.Entities.Book;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BookRepo extends JpaRepository<Book, Long> {
+
+}
+
 ```
